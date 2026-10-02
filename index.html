@@ -607,7 +607,7 @@ function renderTasks() {
 }
 
 function renderReferral() {
-  const link = `https://t.me/${CONFIG.BOT_USERNAME}/${CONFIG.APP_SHORT_NAME}?startapp=ref_${USER_ID}`;
+  const link = `https://t.me/${CONFIG.BOT_USERNAME}?start=ref_${USER_ID}`;
   document.getElementById("refLinkBox").textContent = link;
   document.getElementById("refCount").textContent = state.refCount;
   document.getElementById("refEarn").textContent = state.refEarn;
@@ -798,7 +798,9 @@ function switchTab(name) {
    Init
    ============================================================ */
 render();
-initInAppInterstitial();
+// Auto-shown In-App Interstitial is intentionally NOT started here,
+// so ads only appear when the user taps a watch/claim button.
+// Call initInAppInterstitial() if you want automatic periodic ads later.
 </script>
 
 </body>
